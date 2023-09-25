@@ -20,3 +20,7 @@ class UnauthorizeExecption extends AppExecption {
   UnauthorizeExecption([String? message])
       : super(message, "Unauthorize Request");
 }
+
+class InvalidInputExecption extends AppExecption {
+  InvalidInputExecption([String? message]) : super(message, "Invalid Input");
+}
