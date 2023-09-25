@@ -1,4 +1,4 @@
-# mvvm_try
+# MVVM TRY
 
 A new Flutter project.
 
