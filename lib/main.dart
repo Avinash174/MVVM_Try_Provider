@@ -16,11 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
       // initialRoute: RoutesName.home,
-      initialRoute: RoutesName.home,
+      initialRoute: RoutesName.login,
       onGenerateRoute: Routes.generateRoute,
     );
   }
