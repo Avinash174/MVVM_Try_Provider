@@ -1,20 +1,38 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:mvvm_try/utils/utils.dart';
 import 'package:mvvm_try/widget/button.dart';
 
-class LogInScreen extends StatelessWidget {
+class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
 
+  @override
+  State<LogInScreen> createState() => _LogInScreenState();
+}
+
+class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     FocusNode emailFocus = FocusNode();
     FocusNode passwordFocus = FocusNode();
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
-
     ValueNotifier<bool> _password = ValueNotifier(true);
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
+
+    void dispose() {
+      super.dispose();
+      _emailController.dispose();
+      _passwordController.dispose();
+
+      emailFocus.dispose();
+      passwordFocus.dispose();
+
+      _password.dispose();
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -76,7 +94,22 @@ class LogInScreen extends StatelessWidget {
               ),
               CustomButtom(
                 title: 'Log In',
-                Ontap: () {},
+                Ontap: () {
+                  if (_emailController.text.isEmpty) {
+                    Utils.flushBarErrorMessage('Enter Email', context);
+                  } else if (_passwordController.text.isEmpty) {
+                    Utils.flushBarErrorMessage('Enter Password', context);
+                  } else if (_passwordController.text.length < 6) {
+                    Utils.flushBarErrorMessage('Enter valid password', context);
+                  } else {
+                    Map data = {
+                      'email': _emailController.text.toString(),
+                      'password': _passwordController.text.toString(),
+                    };
+
+                    log('Api hit');
+                  }
+                },
               )
             ],
           ),
