@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:mvvm_try/data/network/BaseApiResponse.dart';
 import 'package:mvvm_try/data/network/NetworkApiResponse.dart';
 import 'package:mvvm_try/res/app_url.dart';
@@ -9,6 +11,8 @@ class AuthRepository {
     try {
       dynamic response =
           await _apiServices.getPostApiResponse(AppUrl.loginEndPoint, data);
+      log('$response');
+      log('$data');
       return response;
     } catch (e) {
       throw (e);
@@ -19,6 +23,8 @@ class AuthRepository {
     try {
       dynamic response =
           await _apiServices.getPostApiResponse(AppUrl.registerEndPoint, data);
+      log('$response');
+      log('$data');
       return response;
     } catch (e) {
       throw (e);

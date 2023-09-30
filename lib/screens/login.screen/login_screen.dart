@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:mvvm_try/res/colors.dart';
 import 'package:mvvm_try/screens/login.screen/login_view_model.dart';
 import 'package:mvvm_try/utils/utils.dart';
 import 'package:mvvm_try/widget/button.dart';
@@ -116,6 +117,15 @@ class _LogInScreenState extends State<LogInScreen> {
                     log('Api hit');
                   }
                 },
+              ),
+              InkWell(
+                onTap: () {},
+                child: const Text(
+                  'Dont Have Account Create Account',
+                  style: TextStyle(
+                    color: AppColors.btnblueColor,
+                  ),
+                ),
               )
             ],
           ),
