@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:mvvm_try/res/colors.dart';
+import 'package:mvvm_try/routes/routes.dart';
 import 'package:mvvm_try/screens/login.screen/login_view_model.dart';
 import 'package:mvvm_try/utils/utils.dart';
 import 'package:mvvm_try/widget/button.dart';
@@ -118,15 +119,23 @@ class _LogInScreenState extends State<LogInScreen> {
                   }
                 },
               ),
+              SizedBox(
+                height: height * .025,
+              ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RoutesName.signUp,
+                  );
+                },
                 child: const Text(
-                  'Dont Have Account Create Account',
+                  "Don't Have Account?Create Account",
                   style: TextStyle(
                     color: AppColors.btnblueColor,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

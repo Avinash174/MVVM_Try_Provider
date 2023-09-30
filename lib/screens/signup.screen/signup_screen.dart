@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:mvvm_try/res/colors.dart';
+import 'package:mvvm_try/routes/routes.dart';
 import 'package:mvvm_try/screens/signup.screen/signup_view_model.dart';
 import 'package:mvvm_try/utils/utils.dart';
 import 'package:mvvm_try/widget/button.dart';
@@ -14,7 +16,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  @override
   FocusNode emailFocus = FocusNode();
   FocusNode passwordFocus = FocusNode();
 
@@ -118,7 +119,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     log('Api hit');
                   }
                 },
-              )
+              ),
+              SizedBox(
+                height: height * .025,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RoutesName.login,
+                  );
+                },
+                child: const Text(
+                  'Already Have Account?Create Account',
+                  style: TextStyle(
+                    color: AppColors.btnblueColor,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
