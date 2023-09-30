@@ -100,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: height * .05,
               ),
               CustomButtom(
-                loading: signUpViewModel.loading,
+                loading: signUpViewModel.signUpLoading,
                 title: 'Sign Up',
                 Ontap: () {
                   if (_emailController.text.isEmpty) {

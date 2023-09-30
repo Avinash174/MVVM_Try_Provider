@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
               },
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Press'),
+                child: const Text('Log Out'),
               ),
             ),
           ),
