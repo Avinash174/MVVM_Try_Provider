@@ -97,6 +97,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 height: height * .05,
               ),
               CustomButtom(
+                loading: loginViewModel.loading,
                 title: 'Log In',
                 Ontap: () {
                   if (_emailController.text.isEmpty) {
