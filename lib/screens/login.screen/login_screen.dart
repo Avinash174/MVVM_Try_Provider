@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:mvvm_try/screens/login.screen/login_view_model.dart';
 import 'package:mvvm_try/utils/utils.dart';
 import 'package:mvvm_try/widget/button.dart';
+import 'package:provider/provider.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -12,27 +14,29 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
+  FocusNode emailFocus = FocusNode();
+  FocusNode passwordFocus = FocusNode();
+
+  ValueNotifier<bool> _password = ValueNotifier(true);
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+
+    emailFocus.dispose();
+    passwordFocus.dispose();
+
+    _password.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    FocusNode emailFocus = FocusNode();
-    FocusNode passwordFocus = FocusNode();
+    final loginViewModel = Provider.of<LogInViewModel>(context);
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
-    ValueNotifier<bool> _password = ValueNotifier(true);
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
-
-    void dispose() {
-      super.dispose();
-      _emailController.dispose();
-      _passwordController.dispose();
-
-      emailFocus.dispose();
-      passwordFocus.dispose();
-
-      _password.dispose();
-    }
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -103,9 +107,10 @@ class _LogInScreenState extends State<LogInScreen> {
                     Utils.flushBarErrorMessage('Enter valid password', context);
                   } else {
                     Map data = {
-                      'email': _emailController.text.toString(),
-                      'password': _passwordController.text.toString(),
+                      "email": _emailController.text.toString(),
+                      "password": _passwordController.text.toString(),
                     };
+                    loginViewModel.loginApi(data, context);
 
                     log('Api hit');
                   }
