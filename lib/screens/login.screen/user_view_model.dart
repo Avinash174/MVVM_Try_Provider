@@ -21,6 +21,7 @@ class UserViewModel with ChangeNotifier {
   Future<bool> remove() async {
     final SharedPreferences sharedPreferences =
         await SharedPreferences.getInstance();
-    return sharedPreferences.clear();
+    sharedPreferences.remove('token');
+    return true;
   }
 }
