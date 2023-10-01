@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_try/routes/routes.dart';
 import 'package:mvvm_try/routes/routes_name.dart';
 import 'package:mvvm_try/screens/login.screen/login_view_model.dart';
+import 'package:mvvm_try/screens/login.screen/user_view_model.dart';
 import 'package:mvvm_try/screens/signup.screen/signup_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => SignUpViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UserViewModel(),
         ),
       ],
       child: MaterialApp(
