@@ -33,6 +33,7 @@ class HomeScreen extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        centerTitle: true,
       ),
       body: const Column(
         mainAxisAlignment: MainAxisAlignment.center,

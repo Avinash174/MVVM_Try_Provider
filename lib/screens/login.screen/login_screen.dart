@@ -125,7 +125,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(
+                  Navigator.pushReplacementNamed(
                     context,
                     RoutesName.signUp,
                   );

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mvvm_try/respository/auth_repository/auth_repository.dart';
-import 'package:mvvm_try/routes/routes.dart';
+import 'package:mvvm_try/screens/home.screen/home_screen.dart';
 import 'package:mvvm_try/utils/utils.dart';
 
 class LogInViewModel with ChangeNotifier {
@@ -21,7 +21,8 @@ class LogInViewModel with ChangeNotifier {
     _authrepo.loginApi(data).then((value) {
       setLoading(false);
       Utils.flushBarErrorMessage('Log In Successfully', context);
-      Navigator.pushNamed(context, RoutesName.home);
+      Navigator.pushAndRemoveUntil(context,
+          MaterialPageRoute(builder: (_) => HomeScreen()), (route) => false);
 
       if (kDebugMode) {
         log(value.toString());
