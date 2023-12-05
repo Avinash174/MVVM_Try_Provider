@@ -32,7 +32,17 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(
+              color: Colors.white,
+            ),
+            backgroundColor: Colors.blue,
+          ),
+          primaryColor: Colors.blue,
+
+          // colorScheme: ColorScheme.fromSeed(
+          //   seedColor: Colors.blue,
+          // ),
         ),
         // initialRoute: RoutesName.home,
         initialRoute: RoutesName.splash,
