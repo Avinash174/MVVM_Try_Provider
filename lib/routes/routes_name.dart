@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_try/routes/routes.dart';
 import 'package:mvvm_try/screens/home.screen/home_screen.dart';
 import 'package:mvvm_try/screens/login.screen/login_screen.dart';
+import 'package:mvvm_try/screens/post.screen/post.dart';
 import 'package:mvvm_try/screens/signup.screen/signup_screen.dart';
 import 'package:mvvm_try/screens/splash.screen/splash.dart';
 
@@ -24,6 +25,8 @@ class Routes {
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
         );
+      case RoutesName.postSCreen:
+        return MaterialPageRoute(builder: (_) => const PostScreen());
 
       default:
         return MaterialPageRoute(

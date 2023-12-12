@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mvvm_try/respository/auth_repository/auth_repository.dart';
-import 'package:mvvm_try/screens/home.screen/home_screen.dart';
+import 'package:mvvm_try/screens/post.screen/post.dart';
 import 'package:mvvm_try/utils/utils.dart';
 
 class LogInViewModel with ChangeNotifier {
@@ -22,7 +22,7 @@ class LogInViewModel with ChangeNotifier {
       setLoading(false);
       Utils.flushBarErrorMessage('Log In Successfully', context);
       Navigator.pushAndRemoveUntil(context,
-          MaterialPageRoute(builder: (_) => HomeScreen()), (route) => false);
+          MaterialPageRoute(builder: (_) => PostScreen()), (route) => false);
 
       if (kDebugMode) {
         log(value.toString());
